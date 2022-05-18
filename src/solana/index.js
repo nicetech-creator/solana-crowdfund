@@ -5,9 +5,14 @@ import {
     PublicKey,
     TransactionInstruction
 } from "@solana/web3.js";
+import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { deserialize, serialize } from "borsh";
 
-class CampaignDetails {
+export const programId = new PublicKey(
+    "FFikFtLPsE9e8b91QjMk1Yfy8fsZ5mScUPn5yh3gwsXd"
+);
+
+export class CampaignDetails {
     constructor(properties) {
         Object.keys(properties).forEach((key) => {
             this[key] = properties[key];
@@ -25,7 +30,7 @@ class CampaignDetails {
         }]]);
 }
 
-class WithdrawRequest {
+export class WithdrawRequest {
     constructor(properties) {
         Object.keys(properties).forEach((key) => {
             this[key] = properties[key];

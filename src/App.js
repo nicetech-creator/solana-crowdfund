@@ -2,6 +2,14 @@ import { WalletNotConnectedError } from '@solana/wallet-adapter-base';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Account, Keypair, SystemProgram, Transaction, PublicKey } from '@solana/web3.js';
 import React, { FC, useCallback } from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import CreatForm from './view/createForm';
+import Home from './view/home';
 
 import {Wallet} from './components/wallet';
 import logo from './logo.svg';
@@ -21,9 +29,13 @@ function App() {
         <Wallet/>
       </div>
 
-      
-
       <div className="container">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="create" element={<CreatForm />} />
+          </Routes>
+        </BrowserRouter>
         <footer className="pt-4 my-md-5 pt-md-5 border-top">
           <div className="row">
             <div className="col-12 col-md">
